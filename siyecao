@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main(){
+	const int maxY=22;
+	const int maxX=70;
+	const float pai=3.14159, a=12.0;
+	const int aspect=2;
+	float angle, p;
+	int x, y;
+	char rose[maxY][maxX];
+	for(y=0; y<maxY; y++)
+	for(x=0; x<maxX;x++)
+	rose[y][x]=' ';
+	const int nn=128;
+	
+	for(int i=0; i<nn; i++){
+		angle = i*2*pai/nn;
+		p = a*sin(2*angle);
+		x = int(p*cos(angle))*aspect+24;
+		y = int(p*sin(angle))+12;
+		rose[y][x]='*';
+	}
+	
+	for(y=0; y<maxY; y++){
+		for(x=0;x<maxX;x++)
+		cout<<rose[y][x];
+		cout<<endl;
+	}
+	
+}
