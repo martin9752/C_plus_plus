@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+#include <stdio.h> 
+using namespace std;
+int main(){
+	const int n=4;
+	char str[n][81],ch;
+	char maxLenLine[81]={'\0'};
+	int count[n], i, j;
+	for(i=0;i<n;i++)
+	count[i]=0;
+	
+	for(i=0;i<n;i++)
+	gets(str[i]);
+	
+	for(i=0; i<n; i++){
+		if(strlen(str[i])>strlen(maxLenLine))
+		strcpy(maxLenLine,str[i]);
+		
+		for(j=0;j<81&&str[i][j]!='\0';j++){
+			ch=str[i][j];
+			if(ch>='A'&&ch<='Z')
+			count[i]++;
+		}
+	}
+	
+	for(i=0;i<n;i++)
+	cout<<setw(10)<<"count["<<i<<"]="<<setw(2)<<count[i]<<endl;
+	cout<<"maxLenLine:"<<endl;
+	cout<<maxLenLine<<endl;
+	
+} 
