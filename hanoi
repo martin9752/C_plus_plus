@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+void hanoi(int, char, char, char);
+
+int main(){
+	int m;
+	cin>>m;
+	cout<<endl<<"The step of moving"<<m<<"disk:";
+	hanoi(m,'a','b','c');
+	cout<<endl;
+} 
+
+void move(char from, char to){
+	cout<<endl<<from<<"-->"<<to;
+}
+
+void hanoi(int n, char a, char b, char c){
+	if(n==1)
+	    move(a, c);
+	else{
+	    hanoi(n-1, a, c, b);
+	    move(a,c);
+	    hanoi(n-1, b, a, c);
+	}
+}
